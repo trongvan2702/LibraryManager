@@ -275,20 +275,20 @@ public class LibraryManager {
         }
         System.out.print("Book Title: ");
         String title = sc.nextLine();
-        int checkPrintedExist = 0, checkEbookExist = 0;
+        int checkPrintedExisted = 0, checkEbookExisted = 0;
         for (Book pb : printed_book) {
             if (pb.getTitle().equals(title)) {
-                checkPrintedExist = 1;
+                checkPrintedExisted = 1;
                 break;
             }
         }
         for (Book e : e_book) {
             if (e.getTitle().equalsIgnoreCase(title)) {
-                checkEbookExist = 1;
+                checkEbookExisted = 1;
                 break;
             }
         }
-        if (checkPrintedExist == 1 && checkEbookExist == 1) {
+        if (checkPrintedExisted == 1 && checkEbookExisted == 1) {
             System.out.println("This book has existed.\n");
             return;
         }
@@ -306,7 +306,7 @@ public class LibraryManager {
             System.out.print("Choose option number: ");
             int choose = sc.nextInt();
             if (choose == 1) {
-                if (checkPrintedBook == 1) {
+                if (checkPrintedExisted == 1) {
                    System.out.println("This book had a printed version.\n");
                 } else {
                     printed_book.add(new PrintedBook(isbn, title, genre, author, publisher, true, numberOfPage));
@@ -314,7 +314,7 @@ public class LibraryManager {
                 }
                 break;
             } else if (choose == 2) {
-                if (checkEBook == 1) {
+                if (checkEbookExisted == 1) {
                     System.out.println("This book had an electronic version.\n");
                 }  else {
                     e_book.add(new Ebook(isbn, title, genre, author, publisher, false, "pdf"));
@@ -351,7 +351,7 @@ public class LibraryManager {
             System.out.println("This book has been removed.\n");
             return;
         }
-        System.out.println("This book doesn't existed.\n");
+        System.out.println("This book doesn't exist.\n");
     }
     //Mượn sách (Reader) 
     public void borrowingBook() {
@@ -397,7 +397,7 @@ public class LibraryManager {
                             break;
                         }
                     }
-                    System.out.println("You has returned this book. Thank you.\n");
+                    System.out.println("You have returned this book. Thank you.\n");
                     return;
                 }
             }
